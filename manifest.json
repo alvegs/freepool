@@ -2,9 +2,7 @@
   "manifest_version": 2,
   "name": "freepool",
   "version": "1.0",
-
   "description": "Show the remaining players in the free pool.",
-
   "icons": {
     "48": "icons/football_icon_48.png",
     "64": "icons/football_icon_64.png"
@@ -12,8 +10,10 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["borderify.js"]
+      "matches": ["*://fantasy.premierleague.com/*"],
+      "js": ["draftedPlayers.js", "content.js"],
+      "run_at": "document_idle"
     }
-  ]
+  ],
+  "permissions": ["https://fantasy.premierleague.com/*", "clipboardWrite"]
 }
